@@ -2,5 +2,5 @@
 Encurtador de link super simples
 
 <p align="center">
-  <img width="689" height="454" src="https://image.prntscr.com/image/ybuQbs1RQcShl3uqXC-PBw.png" style="border-radius:20px; overflow:hidden">
+  <img src="https://i.imgur.com/0toUuZp.jpg">
 </p>
