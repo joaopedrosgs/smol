@@ -1,10 +1,4 @@
 @import url('https://fonts.googleapis.com/css?family=Satisfy');
-@import url(http://weloveiconfonts.com/api/?family=entypo);
-
-/* entypo */
-[class*="entypo-"]:before {
-    font-family: 'entypo', sans-serif;
-}
 
 body {
     background-color: #83c6de;
