@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+
         <meta charset="UTF-8">
         <title>Smol</title>
         <link href="style/reset.css" rel="stylesheet" type="text/css">
@@ -9,8 +10,11 @@
 
     </head>
         <body>
-            <h1>Smol</h1>
+            <h1>Smol</h1><div id="container">
             <input type="text" id="link" placeholder="Digite o seu endereço" onkeypress="return getNewID(event)"> </input>
+                <div id="reload_button"  onclick="refreshInput()"></div>
+
+            </div>
         </body>
 
 </html>

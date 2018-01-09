@@ -14,3 +14,9 @@ function getNewID(e) {
         }
     }
 }
+
+function refreshInput() {
+    var link_input = document.getElementById("link");
+    link_input.value = "";
+    link_input.disabled = false;
+}
