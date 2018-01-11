@@ -7,7 +7,7 @@ Encurtador de link super simples feito em Go
 
 - Crie um banco de dados (preferencialmente postgresql) com a tabela presente no arquivo smols.sql
 
-- Altere as configurações na hora de criar a classe StorageDB no main.go
+- Chame a função RunSmol com os parametros corretos
 
 - Done
 
