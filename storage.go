@@ -1,4 +1,4 @@
-package main
+package smol
 
 import (
 	"database/sql"
@@ -16,11 +16,11 @@ const (
 
 )
 
-type StoragePG struct {
+type storagePG struct {
 	database *sql.DB
 }
-func (s *StoragePG) ConnectTo(address string, port int, dbname string, username string, password string ) error {
-	connectionString:=fmt.Sprintf(connectionString, username, password,address,port,dbname,"disable")
+func (s *storagePG) ConnectTo(address string, port int, dbname string, username string, password string, ssl string) error {
+	connectionString:=fmt.Sprintf(connectionString, username, password,address,port,dbname,ssl)
 	database, err := sql.Open("postgres",connectionString)
 	if(err!= nil) {
 		return err
@@ -29,7 +29,7 @@ func (s *StoragePG) ConnectTo(address string, port int, dbname string, username 
 	return nil
 }
 
-func (s *StoragePG)InsertValue(value string) (string, error) {
+func (s *storagePG)InsertValue(value string) (string, error) {
 	id :=-1
 	err :=s.database.QueryRow(insertLinkQuery,value).Scan(&id)
 	if(err!=nil) {
@@ -39,7 +39,7 @@ func (s *StoragePG)InsertValue(value string) (string, error) {
 }
 
 
-func (s *StoragePG)GetValue(key string) (string, error) {
+func (s *storagePG)GetValue(key string) (string, error) {
 	value := ""
 	keyDec, _ := strconv.ParseUint(key, 16, 34)
 

@@ -1,18 +1,17 @@
-package main
+package smol
 
 import (
 	"github.com/gorilla/mux"
 	"net/http"
 
 	"log"
-
 )
 
-var s StoragePG
+var s storagePG
 
-func main() {
+func RunSmol(address string, port int, dbname string, username string, password string, ssl string, host_port string) {
 
-	err := s.ConnectTo("127.0.0.1", 5432, "smol", "postgres", "postgres")
+	err := s.ConnectTo(address, port, dbname, username, password, ssl)
 	if (err != nil) {
 		println(err.Error())
 		return
@@ -24,6 +23,11 @@ func main() {
 	r.PathPrefix("/").Handler(http.FileServer(http.Dir("./static/")))
 
 	http.Handle("/", r)
-	log.Fatal(http.ListenAndServe(":8000", r))
-
+	err = http.ListenAndServe(":"+host_port, r)
+	if (err != nil) {
+		log.Println("Smol failed to listen to: " + host_port)
+		log.Fatal(err.Error())
+	} else {
+		log.Println("Smol listening to port: " + host_port)
+	}
 }
